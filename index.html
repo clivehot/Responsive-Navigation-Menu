@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <!--   Enable jQuery    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    html {
+        width:100%;
+    }
+
+    body {
+        width:100%;
+        padding: 0;
+        margin: 0;
+    }
+     
+    img {
+        image-rendering:-webkit-optimize-contrast;
+    } 
+    
+    /* ---- Head Section ------ */
+    #head-wrapper {
+        border:2px solid green;
+    }
+
+    #logo-image {
+    position: relative;
+    margin-left: 30px;
+    }
+
+    /* ---- Navigation Bar ---- */
+    #menu img {
+        position: absolute;
+        top:30px;
+        right:40px;   
+        height: 42px;
+        width: 42px;
+    }
+
+    #menu {
+        display: none;
+    }
+    
+    #navigation-bar {
+        border:2px solid red;
+        position: absolute;
+        right:40px;
+        width:60%;
+        text-align: right;
+        top:25px;
+    }
+
+    #navigation-bar li {
+         display: inline-block;
+         margin-left:25px;
+         border:2px solid magenta;
+         padding:10px;
+    }
+
+    #navigation-bar li a {
+        font-family: 'Lato', sans-serif;
+        text-decoration: none;
+        color: black;
+    }
+
+    #navigation-bar a:hover {
+    
+    }
+    
+    /* ---- Responsive Navigation Bar ------ */
+
+    #responsive-nav {
+        border:2px solid yellow;
+        width:100%;
+        position: absolute;
+        right:30px;
+        text-align: right;
+        font-family: 'Lato', sans-serif;
+        display: none;
+    }
+
+    #responsive-nav li {
+        list-style: none;
+        display: inline-block;
+        padding: 10px;
+        margin-right: 15px;
+    }
+
+    #responsive-nav li a {
+        text-decoration: none;
+        font-size: 20px;
+    }
+    
+
+    /* ----- Media Queries ---- */
+
+    /* ----- Large Tablet ------ */
+
+    @media screen and (max-width: 940px) {
+        #navigation-bar {
+            display: none;
+        }
+
+        #menu {
+            display: inline-block;
+        }
+    }
+  
+    /* ------ Phone ------- */
+    @media screen and (max-width: 479px) {
+        #logo-image {
+            width:60%;
+            height:10%;
+        }
+
+        #menu img {
+            top:2%;
+            width:10%;
+            height:8%;
+        }
+
+        #responsive-nav li a {
+            font-size:17px;
+        }
+     }
+
+     /* ----- Small phone ----- */
+     @media screen and (max-width: 413px) {
+        #responasive-nav {
+            position: relative;
+        }
+
+        #responsive-nav li {
+            display: block;
+        }
+
+        #responsive-nav li a {
+            font-size: 19px;
+        }
+    }
+
+    
+</style>
+<script type="text/javascript">
+    $(document).ready(function(){
+        /* toggle the menu on click */
+        $("#menu").click(function(){
+            $("#responsive-nav").toggle();
+        });
+        
+        /* When resizing window hide responsive-nav if window is greater than 941px */ 
+        $(window).resize(function() {
+            if ($(window).width() > 941) {
+                $("#responsive-nav").css("display","none");
+            }
+        });
+    });
+</script>
+</head>
+<body>
+<div id="head-wrapper" >
+	<!-- Logo -->
+    <img id="logo-image" src="logo.png"  >
+
+    <!-- Navigation -->
+    <div id="menu" ><img src="menu.png" ></div>
+    <ul id="navigation-bar" >
+    	<li><a class="current" href="index.html">Home</a></li>
+    	<li><a href="about.html">About</a></li>
+    	<li><a href="gallery.html">Gallery</a></li>
+    	<li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
+    <div id="responsive-nav" >
+		<li><a href="index.html" >Home</a></li>		
+		<li><a href="about.html" >About</a></li>
+		<li><a href="gallery.html" >Gallery</a></li>
+		<li><a href="contact.html" >Contact</a></li>
+    </div>
+</body>
+</html>
